@@ -1,18 +1,51 @@
 import matocham.lists.SdaLinkedList;
 import matocham.lists.SdaList;
+import matocham.sort.BubbleSort;
+import matocham.sort.InsertionSort;
+import matocham.sort.SortingAlghortim;
 import matocham.trees.BinaryNode;
 import matocham.trees.BinaryTree;
 import matocham.trees.Node;
 import matocham.trees.Tree;
+import matocham.trees.TreeTable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.Random;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         //testLists();
         //testTree();
-        binaryTreeTest();
+        //binaryTreeTest();
+        //testHeap();
+        int[] array = generateArray(10);
+        System.out.println(Arrays.toString(array));
+        SortingAlghortim alghortim = new InsertionSort();
+        alghortim.sort(array);
+        System.out.println(Arrays.toString(array));
+
+    }
+
+    public static int[] generateArray(int size){
+        int[] array = new int[size];
+        Random random = new Random(System.currentTimeMillis());
+        Arrays.setAll(array, operand -> random.nextInt(1000));
+        return array;
+    }
+
+    private static void testHeap() {
+        TreeTable table = new TreeTable();
+        table.add("a");
+        table.add("b");
+        table.add("d");
+        table.add("f");
+        table.add("a");
+        System.out.println(table);
+        table.sort();
+        System.out.println(table);
     }
 
     private static void binaryTreeTest() {
