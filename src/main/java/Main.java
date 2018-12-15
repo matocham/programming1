@@ -2,6 +2,9 @@ import matocham.lists.SdaLinkedList;
 import matocham.lists.SdaList;
 import matocham.sort.BubbleSort;
 import matocham.sort.InsertionSort;
+import matocham.sort.QuickSort;
+import matocham.sort.QuickSort2;
+import matocham.sort.SelectionSort;
 import matocham.sort.SortingAlghortim;
 import matocham.trees.BinaryNode;
 import matocham.trees.BinaryTree;
@@ -21,11 +24,14 @@ public class Main {
         //testTree();
         //binaryTreeTest();
         //testHeap();
-        int[] array = generateArray(10);
+        int[] array = generateArray(1000);
         System.out.println(Arrays.toString(array));
-        SortingAlghortim alghortim = new InsertionSort();
+        SortingAlghortim alghortim = new QuickSort2();
+        long start = System.currentTimeMillis();
         alghortim.sort(array);
+        long end = System.currentTimeMillis();
         System.out.println(Arrays.toString(array));
+        System.out.println("Czas sortowania: " + (end-start)/1000.0 + "s");
 
     }
 
