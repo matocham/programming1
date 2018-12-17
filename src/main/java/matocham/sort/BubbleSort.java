@@ -2,7 +2,7 @@ package matocham.sort;
 
 import com.sun.istack.internal.NotNull;
 
-public class BubbleSort implements SortingAlghortim {
+public class BubbleSort implements SortingAlgorithm {
 
     @Override
     public void sort(@NotNull int[] array) {

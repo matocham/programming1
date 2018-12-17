@@ -1,6 +1,6 @@
 package matocham.sort;
 
-public interface SortingAlghortim {
+public interface SortingAlgorithm {
     void sort(int[] array);
 
     default void swap(int[] array, int i, int j) {

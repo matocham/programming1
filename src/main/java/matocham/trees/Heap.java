@@ -112,14 +112,45 @@ public class Heap {
         for (int i = 0; i < size; i++) {
             result.append(data[i]).append(", ");
         }
+
         result.append("]");
         return result.toString();
     }
 
     public void createHeap() {
-        //tworzy stos z przekazanej tablicy
-        // w pętli od 1 do data.length:
-            // wybieramy element pod indeksem size i zapamiętujemy w zmiennej value
-            // resztę analogicznie jak w metodzie add
+        for (int k = 1; k < data.length; k++) {
+            int i = size;
+            int value = data[size];
+            size++;
+            int j = (i - 1) / 2;
+
+            while (i > 0 && data[j] < value) {
+                data[i] = data[j];
+                i = j;
+                j = (i - 1) / 2;
+            }
+            data[i] = value;
+        }
+    }
+
+    public void createHeap2() {
+        size = data.length;
+        for (int k = data.length / 2 - 1; k >= 0; k--) {
+            int value = data[k];
+            int i = k;
+            int j = 2*k+1;
+            while (j < size) {
+                if (j + 1 < size && data[j + 1] > data[j]) {
+                    j++;
+                }
+                if (value >= data[j]) {
+                    break;
+                }
+                data[i] = data[j];
+                i = j;
+                j = 2 * j + 1;
+            }
+            data[i] = value;
+        }
     }
 }

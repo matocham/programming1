@@ -1,6 +1,6 @@
 package matocham.sort;
 
-public class MergeSort implements SortingAlghortim {
+public class MergeSort implements SortingAlgorithm {
     @Override
     public void sort(int[] array) {
         mergeSort(array, 0, array.length - 1);

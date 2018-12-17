@@ -1,12 +1,7 @@
 import matocham.lists.SdaLinkedList;
 import matocham.lists.SdaList;
-import matocham.sort.BubbleSort;
-import matocham.sort.InsertionSort;
-import matocham.sort.MergeSort;
-import matocham.sort.QuickSort;
-import matocham.sort.QuickSort2;
-import matocham.sort.SelectionSort;
-import matocham.sort.SortingAlghortim;
+import matocham.sort.HeapSort;
+import matocham.sort.SortingAlgorithm;
 import matocham.trees.BinaryNode;
 import matocham.trees.BinaryTree;
 import matocham.trees.Node;
@@ -16,7 +11,6 @@ import matocham.trees.TreeTable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 import java.util.Random;
 
 public class Main {
@@ -25,15 +19,19 @@ public class Main {
         //testTree();
         //binaryTreeTest();
         //testHeap();
+        testSorting();
+
+    }
+
+    private static void testSorting() {
         int[] array = generateArray(10);
         System.out.println(Arrays.toString(array));
-        SortingAlghortim alghortim = new MergeSort();
+        SortingAlgorithm alghortim = new HeapSort();
         long start = System.currentTimeMillis();
         alghortim.sort(array);
         long end = System.currentTimeMillis();
         System.out.println(Arrays.toString(array));
         System.out.println("Czas sortowania: " + (end-start)/1000.0 + "s");
-
     }
 
     public static int[] generateArray(int size){

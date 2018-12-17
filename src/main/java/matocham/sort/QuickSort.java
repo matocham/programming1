@@ -1,6 +1,6 @@
 package matocham.sort;
 
-public class QuickSort implements SortingAlghortim {
+public class QuickSort implements SortingAlgorithm {
     @Override
     public void sort(int[] arr) {
         sort(arr, 0, arr.length - 1);
