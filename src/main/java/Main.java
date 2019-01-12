@@ -1,3 +1,5 @@
+import matocham.graph.AdjacencyListsGraph;
+import matocham.graph.Graph;
 import matocham.lists.SdaLinkedList;
 import matocham.lists.SdaList;
 import matocham.sort.HeapSort;
@@ -8,19 +10,26 @@ import matocham.trees.Node;
 import matocham.trees.Tree;
 import matocham.trees.TreeTable;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //testLists();
         //testTree();
         //binaryTreeTest();
         //testHeap();
-        testSorting();
+//        testSorting();
+        graphTest();
+    }
 
+    private static void graphTest() throws IOException {
+        Graph g = new AdjacencyListsGraph();
+        g.loadGraph("graph-example.txt");
+        g.bfs(0);
     }
 
     private static void testSorting() {
@@ -31,10 +40,10 @@ public class Main {
         alghortim.sort(array);
         long end = System.currentTimeMillis();
         System.out.println(Arrays.toString(array));
-        System.out.println("Czas sortowania: " + (end-start)/1000.0 + "s");
+        System.out.println("Czas sortowania: " + (end - start) / 1000.0 + "s");
     }
 
-    public static int[] generateArray(int size){
+    public static int[] generateArray(int size) {
         int[] array = new int[size];
         Random random = new Random(System.currentTimeMillis());
         Arrays.setAll(array, operand -> random.nextInt(1000));
@@ -116,7 +125,7 @@ public class Main {
     private static void testLists() {
         SdaList list1 = new SdaLinkedList();
         for (int i = 0; i < 10; i++) {
-            list1.add("e"+i);
+            list1.add("e" + i);
             System.out.println(list1);
         }
         list1.add("x1", 0);
@@ -125,7 +134,7 @@ public class Main {
         System.out.println(list1);
         list1.remove(0);
         System.out.println(list1);
-        list1.remove(list1.size()-1);
+        list1.remove(list1.size() - 1);
         System.out.println(list1);
         System.out.println(list1.get(0));
         System.out.println(list1.get(2));
