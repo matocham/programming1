@@ -1,3 +1,4 @@
+import matocham.bst.BST;
 import matocham.graph.AdjacencyListsGraph;
 import matocham.graph.Graph;
 import matocham.lists.SdaLinkedList;
@@ -23,7 +24,40 @@ public class Main {
         //binaryTreeTest();
         //testHeap();
 //        testSorting();
-        graphTest();
+        //graphTest();
+        bstTreeTest();
+    }
+
+    private static void bstTreeTest() {
+        BST bst = new BST();
+        bst.inorder();
+        bst.add(10);
+        bst.inorder();
+        bst.add(9);
+        bst.add(11);
+        bst.inorder();
+        bst.add(1);
+        bst.add(3);
+        bst.add(9);
+        bst.add(7);
+        bst.add(8);
+        bst.inorder();
+        bst.add(11);
+        bst.add(10);
+        bst.add(22);
+        bst.inorder();
+        System.out.println(bst);
+        bst.remove(22);
+        bst.inorder();
+        bst.remove(8);
+        bst.inorder();
+        bst.remove(1);
+        bst.inorder();
+        bst.remove(10);
+        bst.inorder();
+        bst.remove(10);
+        bst.inorder();
+        System.out.println(bst);
     }
 
     private static void graphTest() throws IOException {
